@@ -5,16 +5,17 @@ Example :
 
 * Library Functions: 
 ### 1) FormatText.bold(String text) :
-       The function will return a charSequence with *..text..* replaced by **..text..** bolded.
+       The function will return a charSequence with *..text..* replaced by the text within *s bolded.
        
 ### 2) FormatText.italics(String text) :
-       The function will return a charSequence with _..text.._ replaced by *..text..* italicized.
+       The function will return a charSequence with _..text.._ replaced by the text within _s italicized.
 
 ### 3) FormatText.boldAndItalics(String text) :
        The function will return a charSequence with texts enclosed in *s and _s replaced by those texts bolded and italicized.
        
 ### 4) FormatText.colorText(String text,String hexColor,boolean isBackground) :
-       The function will return a charSequence with #..text..# replaced by ..text.. colored as hexColor(if isBackground is true, the color will be in the ..text.. beckground else the text will be colored with the hexColor.
+       The function will return a charSequence with #..text..# replaced by ..text.. colored as hexColor
+       (if isBackground is true, the color will be in the ..text.. beckground else the text will be colored with the hexColor).
        
 * Example code: 
 ```java
