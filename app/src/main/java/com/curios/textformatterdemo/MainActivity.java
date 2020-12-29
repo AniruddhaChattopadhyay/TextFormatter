@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         boldTv.setText(FormatText.bold(boldText));
         italicsTv.setText(FormatText.italics(italicsText));
-        boldItalicsTv.setText(FormatText.boldAndItalics(boldItalicsText));
+        boldItalicsTv.setText(FormatText.italics(FormatText.boldAndItalics(boldItalicsText)));
         colorBackgroundTv.setText(FormatText.colorText(colorText,"#b5bf50",true));
         colorForegroundTv.setText(FormatText.colorText(colorText,"#cd001a",false));
     }

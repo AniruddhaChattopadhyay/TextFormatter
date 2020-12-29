@@ -94,49 +94,7 @@ public class FormatText {
      */
 
     public static CharSequence boldAndItalics(CharSequence text) {
-
-        try{
-            Pattern pattern = Pattern.compile("\\*(.*?)\\*");
-
-            SpannableStringBuilder ssb = new SpannableStringBuilder( text );
-
-            if( pattern != null )
-            {
-                Matcher matcher = pattern.matcher( text );
-                int matchesSoFar = 0;
-                while( matcher.find() )
-                {
-                    int start = matcher.start() - (matchesSoFar * 2);
-                    int end = matcher.end() - (matchesSoFar * 2);
-                    CharacterStyle span = new StyleSpan(android.graphics.Typeface.BOLD);
-                    ssb.setSpan( span, start + 1, end - 1, 0 );
-                    ssb.delete(start, start + 1);
-                    ssb.delete(end - 2, end -1);
-                    matchesSoFar++;
-                }
-            }
-            pattern = Pattern.compile("_(.*?)_");
-            if( pattern != null )
-            {
-                Matcher matcher = pattern.matcher( text );
-                int matchesSoFar = 0;
-                while( matcher.find() )
-                {
-                    int start = matcher.start() - (matchesSoFar * 2);
-                    int end = matcher.end() - (matchesSoFar * 2);
-                    CharacterStyle span = new StyleSpan(Typeface.ITALIC);
-                    ssb.setSpan( span, start + 1, end - 1, 0 );
-                    ssb.delete(start, start + 1);
-                    ssb.delete(end - 2, end -1);
-                    matchesSoFar++;
-                }
-            }
-            return ssb;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            return text;
-        }
+        return italics(bold(text));
     }
 
     /**
