@@ -3,6 +3,25 @@ For formatting text in android like what whatsapp does. Any text enclosed with *
 Example :
 "*Hello* World!" will become "**Hello** World" and "_Hello_ World!" will become "*Hello* World"
 
+## Setup
+
+####  Add the gradle dependency
+
+Add JitPack repository to your root build.gradle at the end of repositories:
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Add the dependency:
+```
+dependencies {
+	        implementation 'com.github.AniruddhaChattopadhyay:TextFormatter:Tag'
+	}
+
 * Library Functions: 
 ### 1) FormatText.bold(String text) :
        The function will return a charSequence with *..text..* replaced by the text within *s bolded.
@@ -36,3 +55,27 @@ Example :
 <p align="center">
 <img src="images/screenshot.PNG" width="300" height="500">
 </p>
+
+## Developed By
+#### Aniruddha Chattopadhyay
+* [LinkedIn](linkedin.com/in/aniruddha-chattopadhyay-448912105/)
+* studyaniruddha@gmail.com
+
+Please feel free to suggest any new features to be added to the Library.
+
+
+## License
+```
+MIT License
+
+Copyright (c) 2020 Aniruddha Chattopadhyay
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
