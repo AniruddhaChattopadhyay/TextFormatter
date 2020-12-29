@@ -15,7 +15,7 @@ Example :
        
 ### 4) FormatText.colorText(String text,String hexColor,boolean isBackground) :
        The function will return a charSequence with #..text..# replaced by ..text.. colored as hexColor
-       (if isBackground is true, the color will be in the ..text.. beckground else the text will be colored with the hexColor).
+       (if isBackground is true, the color will be in the ..text.. beckground else the text will be colored with the hexColor.)
        
 * Example code: 
 ```java
@@ -33,3 +33,6 @@ Example :
                             "#cd001a",
                             false);
 ```
+<p align="center">
+<img src="images/screenshot.PNG" width="300" height="500">
+</p>
