@@ -19,7 +19,7 @@ allprojects {
 Add the dependency:
 ```
 dependencies {
-	        implementation 'com.github.AniruddhaChattopadhyay:TextFormatter:Tag'
+	        implementation 'com.github.AniruddhaChattopadhyay:TextFormatter:1.0.1'
 	}
 
 * Library Functions: 
