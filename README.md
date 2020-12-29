@@ -21,6 +21,7 @@ Add the dependency:
 dependencies {
 	        implementation 'com.github.AniruddhaChattopadhyay:TextFormatter:Tag'
 	}
+```
 
 * Library Functions: 
 ### 1) FormatText.bold(String text) :
