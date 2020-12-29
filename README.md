@@ -1,7 +1,7 @@
 # TextFormatter
 For formatting text in android like what whatsapp does. Any text enclosed with *s will be bolded, any text enclosed within _s will be italicized. 
 Example :
-"* Hello * World!" will become "**Hello** World" and "_Hello_ World!" will become "*Hello* World"
+"** Hello * World!" will become "**Hello** World" and "_Hello _ World!" will become "*Hello* World"
 
 ## Setup
 
