@@ -8,13 +8,14 @@ import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Log;
-
-import androidx.annotation.LongDef;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FormatText {
+
+    /**
+     *  All the processing is done under a try catch block so if there is any exceptions it will return the text as it is and print the exception stacktrace.
+     **/
 
     /**
      * Any text enclosed between *s i.e *text* will be bolded
@@ -23,26 +24,31 @@ public class FormatText {
      */
     public static CharSequence bold(CharSequence text) {
 
-        Pattern pattern = Pattern.compile("\\*(.*?)\\*");
+        try{
+            Pattern pattern = Pattern.compile("\\*(.*?)\\*");
+            SpannableStringBuilder ssb = new SpannableStringBuilder( text );
 
-        SpannableStringBuilder ssb = new SpannableStringBuilder( text );
-
-        if( pattern != null )
-        {
-            Matcher matcher = pattern.matcher( text );
-            int matchesSoFar = 0;
-            while( matcher.find() )
+            if( pattern != null )
             {
-                int start = matcher.start() - (matchesSoFar * 2);
-                int end = matcher.end() - (matchesSoFar * 2);
-                CharacterStyle span = new StyleSpan(android.graphics.Typeface.BOLD);
-                ssb.setSpan( span, start + 1, end - 1, 0 );
-                ssb.delete(start, start + 1);
-                ssb.delete(end - 2, end -1);
-                matchesSoFar++;
+                Matcher matcher = pattern.matcher( text );
+                int matchesSoFar = 0;
+                while( matcher.find() )
+                {
+                    int start = matcher.start() - (matchesSoFar * 2);
+                    int end = matcher.end() - (matchesSoFar * 2);
+                    CharacterStyle span = new StyleSpan(android.graphics.Typeface.BOLD);
+                    ssb.setSpan( span, start + 1, end - 1, 0 );
+                    ssb.delete(start, start + 1);
+                    ssb.delete(end - 2, end -1);
+                    matchesSoFar++;
+                }
             }
+            return ssb;
         }
-        return ssb;
+        catch (Exception e){
+            e.printStackTrace();
+            return text;
+        }
     }
 
     /**
@@ -53,26 +59,32 @@ public class FormatText {
 
     public static CharSequence italics(CharSequence text) {
 
-        Pattern pattern = Pattern.compile("_(.*?)_");
+        try{
+            Pattern pattern = Pattern.compile("_(.*?)_");
 
-        SpannableStringBuilder ssb = new SpannableStringBuilder( text );
+            SpannableStringBuilder ssb = new SpannableStringBuilder( text );
 
-        if( pattern != null )
-        {
-            Matcher matcher = pattern.matcher( text );
-            int matchesSoFar = 0;
-            while( matcher.find() )
+            if( pattern != null )
             {
-                int start = matcher.start() - (matchesSoFar * 2);
-                int end = matcher.end() - (matchesSoFar * 2);
-                CharacterStyle span = new StyleSpan(Typeface.ITALIC);
-                ssb.setSpan( span, start + 1, end - 1, 0 );
-                ssb.delete(start, start + 1);
-                ssb.delete(end - 2, end -1);
-                matchesSoFar++;
+                Matcher matcher = pattern.matcher( text );
+                int matchesSoFar = 0;
+                while( matcher.find() )
+                {
+                    int start = matcher.start() - (matchesSoFar * 2);
+                    int end = matcher.end() - (matchesSoFar * 2);
+                    CharacterStyle span = new StyleSpan(Typeface.ITALIC);
+                    ssb.setSpan( span, start + 1, end - 1, 0 );
+                    ssb.delete(start, start + 1);
+                    ssb.delete(end - 2, end -1);
+                    matchesSoFar++;
+                }
             }
+            return ssb;
         }
-        return ssb;
+        catch (Exception e){
+            e.printStackTrace();
+            return text;
+        }
     }
 
     /**
@@ -83,42 +95,48 @@ public class FormatText {
 
     public static CharSequence boldAndItalics(CharSequence text) {
 
-        Pattern pattern = Pattern.compile("\\*(.*?)\\*");
+        try{
+            Pattern pattern = Pattern.compile("\\*(.*?)\\*");
 
-        SpannableStringBuilder ssb = new SpannableStringBuilder( text );
+            SpannableStringBuilder ssb = new SpannableStringBuilder( text );
 
-        if( pattern != null )
-        {
-            Matcher matcher = pattern.matcher( text );
-            int matchesSoFar = 0;
-            while( matcher.find() )
+            if( pattern != null )
             {
-                int start = matcher.start() - (matchesSoFar * 2);
-                int end = matcher.end() - (matchesSoFar * 2);
-                CharacterStyle span = new StyleSpan(android.graphics.Typeface.BOLD);
-                ssb.setSpan( span, start + 1, end - 1, 0 );
-                ssb.delete(start, start + 1);
-                ssb.delete(end - 2, end -1);
-                matchesSoFar++;
+                Matcher matcher = pattern.matcher( text );
+                int matchesSoFar = 0;
+                while( matcher.find() )
+                {
+                    int start = matcher.start() - (matchesSoFar * 2);
+                    int end = matcher.end() - (matchesSoFar * 2);
+                    CharacterStyle span = new StyleSpan(android.graphics.Typeface.BOLD);
+                    ssb.setSpan( span, start + 1, end - 1, 0 );
+                    ssb.delete(start, start + 1);
+                    ssb.delete(end - 2, end -1);
+                    matchesSoFar++;
+                }
             }
-        }
-        pattern = Pattern.compile("_(.*?)_");
-        if( pattern != null )
-        {
-            Matcher matcher = pattern.matcher( text );
-            int matchesSoFar = 0;
-            while( matcher.find() )
+            pattern = Pattern.compile("_(.*?)_");
+            if( pattern != null )
             {
-                int start = matcher.start() - (matchesSoFar * 2);
-                int end = matcher.end() - (matchesSoFar * 2);
-                CharacterStyle span = new StyleSpan(Typeface.ITALIC);
-                ssb.setSpan( span, start + 1, end - 1, 0 );
-                ssb.delete(start, start + 1);
-                ssb.delete(end - 2, end -1);
-                matchesSoFar++;
+                Matcher matcher = pattern.matcher( text );
+                int matchesSoFar = 0;
+                while( matcher.find() )
+                {
+                    int start = matcher.start() - (matchesSoFar * 2);
+                    int end = matcher.end() - (matchesSoFar * 2);
+                    CharacterStyle span = new StyleSpan(Typeface.ITALIC);
+                    ssb.setSpan( span, start + 1, end - 1, 0 );
+                    ssb.delete(start, start + 1);
+                    ssb.delete(end - 2, end -1);
+                    matchesSoFar++;
+                }
             }
+            return ssb;
         }
-        return ssb;
+        catch (Exception e){
+            e.printStackTrace();
+            return text;
+        }
     }
 
     /**
@@ -130,30 +148,35 @@ public class FormatText {
      */
 
     public static CharSequence colorText(CharSequence text , String color, boolean isBackground) {
-        Pattern pattern = Pattern.compile("#(.*?)#");
+        try{
+            Pattern pattern = Pattern.compile("#(.*?)#");
+            SpannableStringBuilder ssb = new SpannableStringBuilder( text );
 
-        SpannableStringBuilder ssb = new SpannableStringBuilder( text );
-
-        if( pattern != null )
-        {
-            Matcher matcher = pattern.matcher( text );
-            int matchesSoFar = 0;
-            while( matcher.find() )
+            if( pattern != null )
             {
-                int start = matcher.start() - (matchesSoFar * 2);
-                int end = matcher.end() - (matchesSoFar * 2);
-                Log.d("color","msg: "+color);
-                CharacterStyle span;
-                if(isBackground)
-                    span = new BackgroundColorSpan(Color.parseColor(color));
-                else
-                    span = new ForegroundColorSpan(Color.parseColor(color));
-                ssb.setSpan( span, start + 1, end - 1, 0 );
-                ssb.delete(start, start + 1);
-                ssb.delete(end - 2, end -1);
-                matchesSoFar++;
+                Matcher matcher = pattern.matcher( text );
+                int matchesSoFar = 0;
+                while( matcher.find() )
+                {
+                    int start = matcher.start() - (matchesSoFar * 2);
+                    int end = matcher.end() - (matchesSoFar * 2);
+                    Log.d("color","msg: "+color);
+                    CharacterStyle span;
+                    if(isBackground)
+                        span = new BackgroundColorSpan(Color.parseColor(color));
+                    else
+                        span = new ForegroundColorSpan(Color.parseColor(color));
+                    ssb.setSpan( span, start + 1, end - 1, 0 );
+                    ssb.delete(start, start + 1);
+                    ssb.delete(end - 2, end -1);
+                    matchesSoFar++;
+                }
             }
+            return ssb;
         }
-        return ssb;
+        catch (Exception e){
+            e.printStackTrace();
+            return text;
+        }
     }
 }
